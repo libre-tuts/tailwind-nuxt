@@ -1,0 +1,32 @@
+{
+  "javascript.validate.enable": false,
+  // eslint configs
+  "eslint.enable": true,
+  "eslint.options": {
+    "extensions": [".html", ".js", ".vue", ".jsx"]
+  },
+  "eslint.validate": [
+    {
+      "language": "html",
+      "autoFix": true
+    },
+    {
+      "language": "vue",
+      "autoFix": true
+    },
+    {
+      "language": "javascript",
+      "autoFix": true
+    },
+    {
+      "language": "javascriptreact",
+      "autoFix": true
+    }
+  ],
+  "eslint.run": "onSave",
+  "eslint.autoFixOnSave": true,
+  // add here all your external css you want to be type hinted in your vue or html
+  "css.remoteStyleSheets": [
+    // "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+  ]
+}
