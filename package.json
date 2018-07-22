@@ -18,12 +18,20 @@
   },
   "devDependencies": {
     "babel-eslint": "^8.2.6",
+    "cssnano": "^4.0.3",
     "eslint": "^5.2.0",
+    "eslint-config-prettier": "^2.9.0",
     "eslint-friendly-formatter": "^3.0.0",
     "eslint-loader": "^2.1.0",
-    "eslint-plugin-vue": "^4.7.0",
-    "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-prettier": "^2.6.2",
-    "prettier": "^1.13.7"
+    "eslint-plugin-vue": "^4.7.0",
+    "glob-all": "^3.1.0",
+    "postcss-import": "^11.1.0",
+    "postcss-loader": "^2.1.6",
+    "postcss-preset-env": "^5.2.1",
+    "postcss-url": "^7.3.2",
+    "prettier": "^1.13.7",
+    "tailwindcss": "^0.6.4",
+    "purgecss-webpack-plugin": "^0.23.0"
   }
 }
