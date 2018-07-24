@@ -43,7 +43,7 @@ export default {
     meta: [{ hid: 'description', name: 'description', content: 'Welcome' }]
   },
   mounted() {
-    this.nuxtlinks = [{ name: 'home' }, { name: 'about' }, { name: 'support' }]
+    this.nuxtlinks = [{ name: 'home' }, { name: 'about' }, { name: 'support' }, { name: 'login' }]
   }
 }
 </script>

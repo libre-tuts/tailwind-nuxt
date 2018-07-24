@@ -14,8 +14,11 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
+    "@nuxtjs/axios": "^5.3.1",
     "@nuxtjs/router": "^1.0.1",
-    "nuxt": "^1.0.0"
+    "nuxt": "^1.0.0",
+    "nuxt-validate": "^0.1.1",
+    "vform": "^1.0.0"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.6",

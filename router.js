@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import Home from '~/pages/index.vue'
+import Login from '~/pages/login.vue'
 
 Vue.use(Router)
 
@@ -13,7 +14,8 @@ export function createRouter() {
     routes: [
       { path: '/', name: 'home', component: Home },
       { path: '/about', name: 'about', component: Home },
-      { path: '/support', name: 'support', component: Home }
+      { path: '/support', name: 'support', component: Home },
+      { path: '/login', name: 'login', component: Login }
     ]
   })
 }

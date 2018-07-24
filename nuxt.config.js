@@ -40,7 +40,19 @@ module.exports = {
   /*
   ** Add Modules
   */
-  modules: ['@nuxtjs/router'],
+  modules: [
+    '@nuxtjs/router',
+    [
+      'nuxt-validate',
+      {
+        lang: 'en'
+      }
+    ],
+    '@nuxtjs/axios'
+  ],
+  axios: {
+    // proxyHeaders: false
+  },
   /*
   ** Build configuration
   */

@@ -110,3 +110,68 @@ mounted() {
   @apply text-indigo-lighter;
 }
 ```
+
+### 2.) Form Validation for Front End and Back End (Laravel)
+
+- add to modules array in nuxt.config.js
+
+```js
+modules: [
+  // Use for Client-side Validation
+    [
+      'nuxt-validate',
+      {
+        lang: 'en'
+      }
+    ],
+  ],
+```
+
+- Add Dependencies [vform](https://github.com/cretueusebiu/vform) ,[validation-error.js](./mixins/validation-error.js) To Your Component
+
+```js
+import Form from 'vform'
+import validationError from '../mixins/validation-error.js'
+```
+
+- Use Mixins ,and Create form object in data
+
+```js
+export default {
+  mixins: [validationError],
+  data: () => ({
+    form: new Form({
+      username: '',
+      password: '',
+      remember: false
+    })
+  })
+}
+```
+
+- Use in Your HTML Input
+
+```html
+<input
+  v-validate="'required|min:6'"
+  v-model="form.username"
+  type="text"
+  class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-2 py-2 rounded shadow"
+  placeholder="Your Username"
+  data-vv-name="username"
+>
+<span
+  v-for="error in errorMessages('username')"
+  :key="error"
+  class="font-hairline text-xs"
+  :class="{ 'text-red': hasErrors('username') }"
+>
+  {{ error }}
+</span>
+```
+
+- Set axios routing
+
+```js
+https://github.com/tightenco/ziggy
+```
