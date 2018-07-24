@@ -82,6 +82,10 @@
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
 
+"@nuxtjs/router@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/router/-/router-1.0.1.tgz#0cd305ab994e701d4e117e677472206d6835f8e7"
+
 "@nuxtjs/youch@^4.2.3":
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/@nuxtjs/youch/-/youch-4.2.3.tgz#36f8b22df5a0efaa81373109851e1d857aca6bed"
@@ -6353,6 +6357,10 @@ table@^4.0.3:
     lodash "^4.17.4"
     slice-ansi "1.0.0"
     string-width "^2.1.1"
+
+tailwind-percentage-heights-plugin@^0.1.4:
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/tailwind-percentage-heights-plugin/-/tailwind-percentage-heights-plugin-0.1.4.tgz#78fc5f161c248a5cd8582d0ba5b91767a3a53dc2"
 
 tailwindcss@^0.6.4:
   version "0.6.4"

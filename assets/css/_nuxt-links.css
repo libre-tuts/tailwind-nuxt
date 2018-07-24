@@ -1,0 +1,29 @@
+/* change nuxt-link/router-link active class */
+.is-active-link {
+  @apply text-blue-darker;
+  @apply cursor-default;
+}
+
+.is-active-link:hover {
+  @apply text-indigo-lighter;
+  @apply cursor-default;
+}
+
+.is-active-link-exact {
+  @apply text-blue-darker;
+  @apply cursor-default;
+}
+
+.is-active-link-exact:hover {
+  @apply text-indigo-lighter;
+  @apply cursor-default;
+}
+.inactive-link {
+  @apply text-blue-lighter;
+  @apply cursor-pointer;
+}
+
+.inactive-link:hover {
+  @apply text-indigo-lighter;
+  @apply cursor-pointer;
+}

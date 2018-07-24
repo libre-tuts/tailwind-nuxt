@@ -1,21 +1,19 @@
 <template>
-  <div>
-    <div class="code-area">
-      <span class="block italic text-grey-dark" v-if="error.statusCode === 404">// 404 - page not found</span>
-      <span class="block">
-        <span class="text-red">if</span>(<span class="text-light-blue">!</span><span class="text-light italic">found</span>) {
-      </span>
-      <span class="block">
-        <span class="indent text-blue">throw</span><span>(<span class="text-red">"(╯°□°)╯︵ ┻━┻"</span>);</span>
-      </span>
-      <span>}</span>
-      <span class="block">
-        <span class="text-red">else</span> {
-        <span class="block">
-          <span class="indent text-blue">redirect</span><span>(<span class="text-red">"<nuxt-link to="/" class="text-blue no-underline">home</nuxt-link>"</span>);</span>
-        </span>
-      </span>
-      <span>}</span>
+  <div class="__nuxt-error-page">
+    <div class="error">
+      <svg xmlns="http://www.w3.org/2000/svg" width="90" height="90" fill="#DBE1EC" viewBox="0 0 48 48"><path d="M22 30h4v4h-4zm0-16h4v12h-4zm1.99-10C12.94 4 4 12.95 4 24s8.94 20 19.99 20S44 35.05 44 24 35.04 4 23.99 4zM24 40c-8.84 0-16-7.16-16-16S15.16 8 24 8s16 7.16 16 16-7.16 16-16 16z"/></svg>
+
+      <div class="title">{{ message }}</div>
+      <p class="description" v-if="statusCode === 404">
+        <nuxt-link class="error-link" to="/">Back to the home page</nuxt-link>
+      </p>
+
+      <p class="description" v-else>An error occurred while rendering the page. Check developer tools console for details.</p>
+
+
+      <div class="logo container">
+        <a :href="url" target="_blank" rel="noopener" class="text-center">{{ domain }}</a>
+      </div>
     </div>
   </div>
 </template>
@@ -28,21 +26,96 @@ export default {
       required: true
     }
   },
-  data: () => ({
-    dark: true
-  })
+  head() {
+    return {
+      title: this.message,
+      meta: [
+        {
+          name: 'viewport',
+          content:
+            'width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'
+        }
+      ]
+    }
+  },
+
+  // Only on debug mode
+  data() {
+    return {
+      mounted: false,
+      domain: 'google.com',
+      url: 'https://google.com'
+    }
+  },
+  mounted() {
+    this.mounted = true
+    this.domain = `${window.location.hostname}`
+    this.url = `${window.location.protocol}//${window.location.host}`
+  },
+  created() {
+    console.error(this.error)
+  },
+  watch: {
+    error(newErr) {
+      if (newErr) {
+        console.error(newErr)
+      }
+    }
+  },
+
+  computed: {
+    statusCode() {
+      return (this.error && this.error.statusCode) || 500
+    },
+    message() {
+      return this.error.message || 'Error'
+    }
+  }
 }
 </script>
-<style scoped>
-@media screen and (max-width: 320px) {
-  .code-area {
-    font-size: 5vw;
-    min-width: auto;
-    width: 95%;
-    margin: auto;
-    padding: 5px;
-    padding-left: 10px;
-    line-height: 6.5vw;
-  }
+
+<style>
+.__nuxt-error-page {
+  padding: 1rem;
+  background: #081421;
+  color: #47494e;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: sans-serif;
+  font-weight: 100 !important;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.__nuxt-error-page .error {
+  max-width: 450px;
+}
+.__nuxt-error-page .title {
+  font-size: 1.5rem;
+  margin-top: 15px;
+  color: #47494e;
+  margin-bottom: 8px;
+}
+.__nuxt-error-page .description {
+  color: #7f828b;
+  line-height: 21px;
+  margin-bottom: 10px;
+}
+.__nuxt-error-page a {
+  color: #7f828b !important;
+  text-decoration: none;
+}
+.__nuxt-error-page .logo {
+  position: fixed;
+  left: 12px;
+  bottom: 12px;
 }
 </style>
