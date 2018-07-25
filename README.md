@@ -111,6 +111,16 @@ mounted() {
 }
 ```
 
+### 2.) Adding New [Font Awesome Icons](https://github.com/FortAwesome/vue-fontawesome)
+
+- Go to [fontawesome.js](./plugins/fontawesome.js) then add manually The icons You want to use
+
+```js
+import { faMap } from '@fortawesome/fontawesome-free-solid'
+
+fontawesome.library.add(faMap)
+```
+
 ### 2.) Form Validation for Front End and Back End (Laravel)
 
 - add to modules array in nuxt.config.js
@@ -149,29 +159,46 @@ export default {
 }
 ```
 
-- Use in Your HTML Input
-
-```html
-<input
-  v-validate="'required|min:6'"
-  v-model="form.username"
-  type="text"
-  class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-2 py-2 rounded shadow"
-  placeholder="Your Username"
-  data-vv-name="username"
->
-<span
-  v-for="error in errorMessages('username')"
-  :key="error"
-  class="font-hairline text-xs"
-  :class="{ 'text-red': hasErrors('username') }"
->
-  {{ error }}
-</span>
-```
-
-- Set axios routing
+- import vInput
 
 ```js
-https://github.com/tightenco/ziggy
+import vInput from '../components/form/v-input'
+export default {
+  components: {
+    vInput
+  }
+}
+```
+
+- Use V-INPUT
+
+```html
+<v-input
+  name="Username or Email"
+  place-holder="Type Username"
+  field="username"
+  prefix-icon="envelope"
+  prefix-icon-color="text-yellow-dark"
+  :form="form"
+  suffix-icon="undo"
+  suffix-icon-color="text-green"
+  :validation="'required|min:6|email'"
+/>
+```
+
+- Todo
+  - Callback function For prefix and suffix icons
+
+### 3.) Using Laravel Routes For Api
+
+- Simply Generate [Ziggy Routes](https://github.com/tightenco/ziggy) So we can use global route() object
+
+```js
+php artisan ziggy:generate "resources/foo.js"
+```
+
+- then we just compy and import this file to our plugins folder, So We can access it globally
+
+```js
+route('posts.index')
 ```
