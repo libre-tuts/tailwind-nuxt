@@ -21,6 +21,11 @@
     "vform": "^1.0.0"
   },
   "devDependencies": {
+    "@fortawesome/fontawesome": "^1.1.1",
+    "@fortawesome/fontawesome-free-brands": "^5.0.4",
+    "@fortawesome/fontawesome-free-regular": "^5.0.3",
+    "@fortawesome/fontawesome-free-solid": "^5.0.3",
+    "@fortawesome/vue-fontawesome": "^0.0.22",
     "babel-eslint": "^8.2.6",
     "cssnano": "^4.0.3",
     "eslint": "^5.2.0",
@@ -36,7 +41,9 @@
     "postcss-url": "^7.3.2",
     "prettier": "^1.13.7",
     "purgecss-webpack-plugin": "^0.23.0",
+    "roboto-base64": "^0.1.2",
     "tailwind-percentage-heights-plugin": "^0.1.4",
-    "tailwindcss": "^0.6.4"
+    "tailwindcss": "^0.6.4",
+    "vue-visible": "^1.0.2"
   }
 }

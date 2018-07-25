@@ -32,11 +32,15 @@ module.exports = {
   /*
   ** Load global CSS
   */
-  css: ['@/assets/css/main.css'],
+  css: [{ src: 'roboto-base64', lang: 'css' }, '@/assets/css/main.css'],
   /*
   ** Customize the progress bar color
   */
   loading: { color: '#3B8070' },
+  /**
+   * PLugins
+   */
+  plugins: ['@/plugins/fontawesome', { src: '@/plugins/v-visible', ssr: false }],
   /*
   ** Add Modules
   */
